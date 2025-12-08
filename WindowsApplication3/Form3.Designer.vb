@@ -163,7 +163,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(477, 226)
+        Me.Label2.Location = New System.Drawing.Point(484, 226)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(285, 46)
         Me.Label2.TabIndex = 39

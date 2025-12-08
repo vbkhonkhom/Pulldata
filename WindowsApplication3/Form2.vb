@@ -8,7 +8,6 @@
             Exit Sub
         End If
         Form1.StrInputFolder = TextBox1.Text
-        Form1.SaveConfigData()
         MsgBox("Setting Saved!")
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()

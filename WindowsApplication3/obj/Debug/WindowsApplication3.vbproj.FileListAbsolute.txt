@@ -29,3 +29,17 @@ C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟ�
 C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Form4.resources
 C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Resources.resources
 C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.vbproj.GenerateResource.Cache
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\bin\Debug\WindowsApplication3.exe.config
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.exe
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.xml
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.vbprojResolveAssemblyReference.cache
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.Form1.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.Form2.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.Form3.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.Form4.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.Resources.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\obj\Debug\WindowsApplication3.vbproj.GenerateResource.Cache
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\bin\Debug\WindowsApplication3.exe
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\bin\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\testcode\WindowsApplication3\bin\Debug\WindowsApplication3.xml

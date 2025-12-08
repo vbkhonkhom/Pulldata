@@ -80,6 +80,9 @@ Partial Class Form1
         Me.Button1.Text = "Data conversion"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'BackgroundWorker1
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
