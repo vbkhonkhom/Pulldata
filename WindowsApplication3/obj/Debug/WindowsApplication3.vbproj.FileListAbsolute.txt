@@ -1,0 +1,31 @@
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.exe.config
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.exe
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.pdb
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\bin\Debug\WindowsApplication3.xml
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form1.resources
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form2.resources
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form3.resources
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Form4.resources
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.Resources.resources
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.vbproj.GenerateResource.Cache
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.exe
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.xml
+c:\users\mcreng\documents\visual studio 2015\Projects\WindowsApplication3\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ\WindowsApplication3\bin\Debug\WindowsApplication3.exe.config
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ\WindowsApplication3\obj\Debug\WindowsApplication3.exe
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ\WindowsApplication3\obj\Debug\WindowsApplication3.xml
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\bin\Debug\WindowsApplication3.exe.config
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.exe
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.xml
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\bin\Debug\WindowsApplication3.exe
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\bin\Debug\WindowsApplication3.pdb
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\bin\Debug\WindowsApplication3.xml
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.vbprojResolveAssemblyReference.cache
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Form1.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Form2.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Form3.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Form4.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.Resources.resources
+C:\Users\MCRENG\Documents\Visual Studio 2015\Projects\ดึงจากไฟลตรงๆ - Copy\WindowsApplication3\obj\Debug\WindowsApplication3.vbproj.GenerateResource.Cache
