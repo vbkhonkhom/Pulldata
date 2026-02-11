@@ -4,7 +4,7 @@ Imports System.IO
 Imports System.Data.SqlClient
 
 Public Class Form1
-    Public StrInputFolder As String = "C:\test\input"
+    Public StrInputFolder As String = "C:\New folder"
     Public StrBackupFolder As String = "C:\MachineData\Backup"
     Public StrCDIR As String = System.IO.Directory.GetCurrentDirectory
     Public OKFlag As Boolean
@@ -45,17 +45,15 @@ Public Class Form1
         Do
             If BackgroundWorker1.CancellationPending Then Exit Do
 
-            ' 1. รองรับหลายนามสกุล (เพิ่มนามสกุลที่ต้องการตรงนี้)
-            Dim extensions() As String = {"*.txt", "*.csv", "*.xml", "*.xls", "*.xlsx"}
             Dim files As New List(Of String)()
 
             ' วนลูปดึงรายชื่อไฟล์ทุกนามสกุลที่กำหนด
-            For Each ext As String In extensions
-                Try
-                    files.AddRange(Directory.GetFiles(StrInputFolder, ext))
-                Catch ex As Exception
-                End Try
-            Next
+
+            Try
+                files.AddRange(Directory.GetFiles(StrInputFolder, "*.*"))
+            Catch ex As Exception
+            End Try
+
 
             If files.Count > 0 Then
                 For Each filePath As String In files
@@ -64,57 +62,55 @@ Public Class Form1
                     Dim fName As String = Path.GetFileName(filePath)
                     BackgroundWorker1.ReportProgress(14, "Found file: " & fName)
 
-                    Dim fileToRead As String = filePath ' ไฟล์ที่จะใช้อ่านข้อมูล (อาจเป็นไฟล์เดิม หรือ Temp)
-                    Dim fileToMove As String = filePath ' ไฟล์ที่จะถูกย้ายไป Backup
-                    Dim isExcel As Boolean = False      ' ตัวแปรเช็คว่าเป็น Excel หรือไม่
-
                     Try
-                        ' 2. ตรวจสอบนามสกุล ถ้าเป็น Excel ให้แปลงก่อน
-                        Dim ext As String = Path.GetExtension(filePath).ToLower()
-                        If ext = ".xls" Or ext = ".xlsx" Then
-                            isExcel = True
-                            ' สร้างชื่อไฟล์ CSV ชั่วคราว
-                            Dim tempCsvPath As String = Path.Combine(StrInputFolder, Path.GetFileNameWithoutExtension(filePath) & "_temp.csv")
-                            
-                            BackgroundWorker1.ReportProgress(14, "Converting Excel to Text...")
-                            ConvertExcelToCsv(filePath, tempCsvPath) ' เรียกฟังก์ชันแปลง (ต้องมี Excel ติดตั้งในเครื่อง)
-                            
-                            fileToRead = tempCsvPath ' อ่านข้อมูลจากไฟล์ CSV ที่แปลงมา
-                            fileToMove = tempCsvPath ' ไฟล์ที่จะย้ายไป Backup คือไฟล์ที่แปลงแล้วนี้
-                        End If
+                        Dim lines() As String = File.ReadAllLines(filePath, Encoding.Default)
+                        If lines.Length > 0 Then
+                            Dim headerLine As String = lines(0)
+                            Dim headers() As String = headerLine.Split(vbTab)
+                            Dim productColIndex As Integer = -1
+                            For i As Integer = 0 To headers.Length - 1
+                                If headers(i).Trim().Equals("Product", StringComparison.OrdinalIgnoreCase) Then
+                                    productColIndex = i
+                                End If
+                            Next
 
-                        ' 3. อ่านข้อมูล (ใช้ฟังก์ชันเดิม)
-                        Dim DataBuf(,) As String = Read_File_Spy(fileToRead, MaxID)
-
-                        If DataBuf IsNot Nothing Then
-                            ' 4. ตั้งชื่อไฟล์ปลายทางให้เป็น .txt เสมอ ตามที่ต้องการ
-                            Dim destFileName As String = Path.GetFileNameWithoutExtension(fName) & "_" & DateTime.Now.ToString("yyyyMMddHHmmss") & ".txt"
-                            Dim destPath As String = Path.Combine(StrBackupFolder, destFileName)
-
-                            ' ย้ายไฟล์ (ถ้าเป็น Excel จะย้ายตัว Temp CSV ไปเป็น .txt)
-                            If File.Exists(destPath) Then File.Delete(destPath) ' ลบตัวเก่าถ้าชื่อซ้ำ
-                            File.Move(fileToMove, destPath)
-
-                            ' ถ้าเป็น Excel ต้องลบไฟล์ต้นฉบับ .xls/.xlsx ทิ้งด้วย (เพราะเราย้ายแค่ตัว Temp ไปเก็บ)
-                            If isExcel AndAlso File.Exists(filePath) Then
-                                File.Delete(filePath)
+                            If productColIndex <> -1 Then
+                                Dim productData As New Dictionary(Of String, StringBuilder)
+                                For r As Integer = 1 To lines.Length - 1
+                                    Dim currentLine As String = lines(r)
+                                    If String.IsNullOrWhiteSpace(currentLine) Then Continue For
+                                    Dim cols() As String = currentLine.Split(vbTab)
+                                    If cols.Length > productColIndex Then
+                                        Dim productName As String = cols(productColIndex).Trim()
+                                        If productName = "" Then productName = "Unknown"
+                                        For Each c As Char In Path.GetInvalidFileNameChars()
+                                            productName = productName.Replace(c, "_"c)
+                                        Next
+                                        If Not productData.ContainsKey(productName) Then
+                                            productData.Add(productName, New StringBuilder())
+                                            productData(productName).AppendLine(headerLine)
+                                        End If
+                                        productData(productName).AppendLine(currentLine)
+                                    End If
+                                Next
+                                For Each kvp As KeyValuePair(Of String, StringBuilder) In productData
+                                    Dim prodName As String = kvp.Key
+                                    Dim content As String = kvp.Value.ToString()
+                                    Dim newFileName As String = prodName & ".txt"
+                                    Dim destPath As String = Path.Combine(StrBackupFolder, newFileName)
+                                    File.WriteAllText(destPath, content, Encoding.Default)
+                                    BackgroundWorker1.ReportProgress(19, "Saved Group: " & newFileName)
+                                Next
+                                Dim backupOriginal As String = Path.Combine(StrBackupFolder, "Processed_" & fName & "_" & DateTime.Now.ToString("yyyyMMddHHmmss") & ".bak")
+                                File.Move(filePath, backupOriginal)
+                                BackgroundWorker1.ReportProgress(19, "Moved Original File to Backup")
+                            Else
+                                BackgroundWorker1.ReportProgress(19, "Skipped: Column 'Product' not found in " & fName)
                             End If
-
-                            BackgroundWorker1.ReportProgress(19, "Processed & Saved as .txt: " & destFileName)
-                        Else
-                            BackgroundWorker1.ReportProgress(19, "Skipped (No Data Found)")
-                            ' กรณีอ่านไม่เจอข้อมูล ถ้าเป็น Excel ให้ลบไฟล์ Temp ทิ้ง (ไม่เก็บ Backup)
-                            If isExcel AndAlso File.Exists(fileToRead) Then File.Delete(fileToRead)
                         End If
-
                     Catch ex As Exception
-                        BackgroundWorker1.ReportProgress(19, "Error: " & ex.Message)
-                        ' กรณี Error ถ้ามีไฟล์ Temp ค้างอยู่ให้ลบ
-                        If isExcel AndAlso File.Exists(fileToRead) Then
-                            Try : File.Delete(fileToRead) : Catch : End Try
-                        End If
+                        BackgroundWorker1.ReportProgress(19, "Eror: " & ex.Message)
                     End Try
-
                     System.Threading.Thread.Sleep(1000)
                 Next
             Else
