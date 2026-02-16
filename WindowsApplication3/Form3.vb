@@ -12,6 +12,7 @@
     Private Sub Button1_Click(sender As System.Object, e As EventArgs) Handles Button1.Click
         Label1.Text = "Stopping..."
         TextBox1.AppendText("Stopping requested..." & Environment.NewLine)
+        Me.Close()
         Form1.BackgroundWorker1.CancelAsync()
         Form1.StopFlag = True
     End Sub
