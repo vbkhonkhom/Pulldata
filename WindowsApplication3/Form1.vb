@@ -116,12 +116,16 @@ Public Class Form1
                         If currentLine.Contains("Lot Number") Then Continue While
                         If cols.Length > 8 Then
                             Dim finalProductName As String = cols(8).Trim()
+                            Dim finalMachineName As String = cols(16).Trim()
                             If String.IsNullOrEmpty(finalProductName) Then finalProductName = "Unknow"
+                            If String.IsNullOrEmpty(finalMachineName) Then finalMachineName = "Unknow2"
+
+                            Dim finalFileName As String = finalProductName & "_" & finalMachineName
 
                             For Each c As Char In Path.GetInvalidFileNameChars()
                                 finalProductName = finalProductName.Replace(c, "_"c)
                             Next
-                            Dim targetFile As String = Path.Combine(StrBackupFolder, finalProductName & ".txt")
+                            Dim targetFile As String = Path.Combine(StrBackupFolder, finalFileName & ".txt")
                             Using sw As New StreamWriter(targetFile, True, Encoding.Default)
                                 If New FileInfo(targetFile).Length = 0 Then sw.WriteLine(headerLine)
                                 sw.WriteLine(currentLine)
@@ -265,5 +269,6 @@ Public Class Form1
             GC.WaitForPendingFinalizers()
         End Try
     End Sub
+
 
 End Class
